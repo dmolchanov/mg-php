@@ -5,7 +5,7 @@ ARG WWW_USER="www-data"
 RUN \
 	docker-php-ext-configure pdo_mysql --with-pdo-mysql=mysqlnd && \
 	docker-php-ext-configure mysqli --with-mysqli=mysqlnd && \
-	docker-php-ext-install pdo pdo_mysql && \
+	docker-php-ext-install pdo pdo_mysql mysqli && \
 	apt-get update && apt-get install -y \
 		libfreetype6-dev \
 		libjpeg62-turbo-dev \
