@@ -1,0 +1,11 @@
+FROM mgrus1/mg-php:7.4-latest
+LABEL MAINTAINER=dmolchanov@gmail.com
+ARG WWW_USER="www-data"
+
+RUN \
+	apt-get update && apt-get install -y \
+  imagemagick \
+  libmagickwand-6.q16-dev \
+  less \
+  && yes "" | pecl install imagick \
+  && echo 'extension=imagick.so' > /usr/local/etc/php/conf.d/pecl-imagick.ini
